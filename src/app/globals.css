@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@theme {
+  --color-institucional-azul: #0551DA;
+  --color-institucional-amarillo: #FFF884;
+  --color-institucional-gris: #595959;
+}
+
+body {
+  color: var(--color-institucional-gris);
+  background-color: #ffffff;
+}
