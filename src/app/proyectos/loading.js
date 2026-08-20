@@ -19,4 +19,4 @@ export default function CargandoProyectos() {
       </div>
     </main>
   )
-}pag
+}
