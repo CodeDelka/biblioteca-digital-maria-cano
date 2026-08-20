@@ -10,6 +10,9 @@ export const metadata = {
   },
   description:
     "Biblioteca Digital Institucional de la I.E.D. Bilingüe María Cano: fotografías, videos, documentos, historia y proyectos educativos.",
+  verification: {
+    google: "SG11dnA-2kb-NUp733JPPuNhmZHF3k5GAfOvYqJjW1E",
+  },
   openGraph: {
     title: "Biblioteca Digital INEDHUMAC",
     description:
