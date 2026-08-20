@@ -33,6 +33,11 @@ export default async function LayoutAdmin({ children }) {
     .eq('id', user.id)
     .single()
 
+    const { count: mensajesSinLeer } = await supabase
+  .from('mensajes_contacto')
+  .select('*', { count: 'exact', head: true })
+  .eq('leido', false)
+
   return (
     <div className="flex min-h-screen bg-gray-50">
       {/* Menú lateral */}
@@ -47,7 +52,6 @@ export default async function LayoutAdmin({ children }) {
 
         <nav className="flex flex-col p-2">
           {enlacesAdmin.map((enlace) => {
-            // Solo el super_admin ve el enlace de Usuarios
             if (enlace.ruta === '/admin/usuarios' && perfil?.rol !== 'super_admin') {
               return null
             }
@@ -55,9 +59,14 @@ export default async function LayoutAdmin({ children }) {
               <Link
                 key={enlace.ruta}
                 href={enlace.ruta}
-                className="rounded-lg px-3 py-2 text-sm font-medium transition hover:bg-white/10"
+                className="flex items-center justify-between rounded-lg px-3 py-2 text-sm font-medium transition hover:bg-white/10"
               >
                 {enlace.nombre}
+                {enlace.ruta === '/admin/mensajes' && mensajesSinLeer > 0 && (
+                  <span className="rounded-full bg-institucional-amarillo px-2 py-0.5 text-xs font-bold text-institucional-azul">
+                    {mensajesSinLeer}
+                  </span>
+                )}
               </Link>
             )
           })}

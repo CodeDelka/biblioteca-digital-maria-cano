@@ -1,5 +1,6 @@
 import "./globals.css";
 import Navbar from "@/components/navbar";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata = {
   metadataBase: new URL("https://biblioteca-digital-maria-cano.vercel.app"),
@@ -41,6 +42,7 @@ export default function RootLayout({ children }) {
       <body>
         <Navbar />
         {children}
+        <Analytics />
       </body>
     </html>
   );
