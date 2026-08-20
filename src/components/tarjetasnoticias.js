@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import BotonCompartir from '@/components/botoncompartir'
 
 function formatearFecha(fecha) {
   return new Date(fecha).toLocaleDateString('es-CO', {
@@ -114,6 +115,12 @@ export default function TarjetasNoticias({ noticias }) {
                     {formatearFecha(noticiaAbierta.publicado_en)}
                   </p>
                 </div>
+                <div className="flex items-center gap-2">
+                <BotonCompartir
+                  titulo={noticiaAbierta.titulo}
+                  texto={`${noticiaAbierta.titulo} - Biblioteca Digital INEDHUMAC`}
+                  url="https://biblioteca-digital-maria-cano.vercel.app"
+                />
                 <button
                   onClick={() => setNoticiaAbierta(null)}
                   className="text-2xl text-institucional-gris hover:text-institucional-azul"
@@ -121,6 +128,7 @@ export default function TarjetasNoticias({ noticias }) {
                 >
                   &times;
                 </button>
+              </div>
               </div>
               <p className="mt-4 whitespace-pre-line text-institucional-gris">
                 {noticiaAbierta.contenido}

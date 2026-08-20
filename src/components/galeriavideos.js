@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import BotonCompartir from '@/components/botoncompartir'
 
 export default function GaleriaVideos({ videos }) {
   const [videoSeleccionado, setVideoSeleccionado] = useState(null)
@@ -97,6 +98,18 @@ export default function GaleriaVideos({ videos }) {
                   {videoSeleccionado.descripcion}
                 </p>
               )}
+              <div className="mt-3 flex justify-center">
+                <BotonCompartir
+                  titulo={videoSeleccionado.titulo}
+                  texto={`${videoSeleccionado.titulo} - Biblioteca Digital INEDHUMAC`}
+                  url={
+                    videoSeleccionado.tipo_fuente === 'youtube'
+                      ? `https://www.youtube.com/watch?v=${videoSeleccionado.url_video}`
+                      : videoSeleccionado.url_video
+                  }
+                  claro
+                />
+              </div>
             </div>
           </div>
         </div>

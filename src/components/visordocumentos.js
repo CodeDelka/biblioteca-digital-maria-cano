@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import BotonCompartir from '@/components/botoncompartir'
 
 export default function VisorDocumentos({ documentos }) {
   const [documentoSeleccionado, setDocumentoSeleccionado] = useState(null)
@@ -53,7 +54,12 @@ export default function VisorDocumentos({ documentos }) {
                 {documentoSeleccionado.titulo}
               </h3>
               <div className="flex items-center gap-3">
-                <a
+                <BotonCompartir
+                  titulo={documentoSeleccionado.titulo}
+                  texto={`${documentoSeleccionado.titulo} - Biblioteca Digital INEDHUMAC`}
+                  url={documentoSeleccionado.url_archivo}
+                />
+                  <a
                   href={documentoSeleccionado.url_archivo}
                   target="_blank"
                   rel="noopener noreferrer"

@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
+import BotonCompartir from '@/components/botoncompartir'
 
 export default function GaleriaFotos({ fotos }) {
   const [fotoSeleccionada, setFotoSeleccionada] = useState(null)
@@ -74,6 +75,14 @@ export default function GaleriaFotos({ fotos }) {
               {fotoSeleccionada.anio && (
                 <p className="mt-1 text-xs text-white/60">{fotoSeleccionada.anio}</p>
               )}
+              <div className="mt-3 flex justify-center">
+                <BotonCompartir
+                  titulo={fotoSeleccionada.titulo}
+                  texto={`${fotoSeleccionada.titulo} - Biblioteca Digital INEDHUMAC`}
+                  url={fotoSeleccionada.url_imagen}
+                  claro
+                />
+              </div>
             </div>
           </div>
         </div>
